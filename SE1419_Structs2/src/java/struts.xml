@@ -1,0 +1,50 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!-- Configuration for the default package. -->
+    <package name="default" extends="struts-default" namespace="/">
+        <action name="">
+            <result>index.html</result>
+        </action>
+        <action name="try">
+            <result>index.html</result>
+        </action>
+        <action name="login" class="khanglb.struts2.LoginAction" method="checkLogin">
+            <result>search.jsp</result>
+            <result name="fail" type="redirect">invalid.html</result>
+        </action>
+        <action name="searchLastname" class="khanglb.struts2.SearchLastnameAction" 
+                method="searchLastname">
+            <result>search.jsp</result>
+        </action>
+        <action name="signout" class="khanglb.struts2.SignoutAction" method="signout">
+            <result>index.html</result>
+            <result name="fail" type="redirect">error.html</result>
+        </action>
+        <action name="delete" class="khanglb.struts2.DeleteAction" method="deleteAccount">
+            <result type="redirectAction">
+                <param name="actionName">searchLastname</param>
+                <param name="searchValue">${lastSearchValue}</param>
+            </result>
+            <result name="fail" type="redirect">error.html</result>
+        </action>
+        <action name="update" class="khanglb.struts2.UpdateAction" method="updateAccount">
+            <result type="redirectAction">
+                <param name="actionName">searchLastname</param>
+                <param name="searchValue">${lastSearchValue}</param>
+            </result>
+            <result name="fail" type="redirect">error.html</result>
+        </action>
+        <action name="signup">
+            <result>createNewAccount.jsp</result>
+        </action>
+        <action name="signUp" class="khanglb.struts2.SignUpAction" method="createNewAccount">
+            <exception-mapping exception="java.sql.SQLException" result="input"/>
+            <result>index.html</result>
+            <result name="fail" type="redirect">error.html</result>
+            <result name="input">createNewAccount.jsp</result>
+        </action>
+    </package>
+</struts>
