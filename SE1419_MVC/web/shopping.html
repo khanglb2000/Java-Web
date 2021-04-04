@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Book Market</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Book market</h1>
+        <form action="DispatchServlet">
+            Choose book <select name="chkBook">
+                <option>Java</option>
+                <option>JavaBeans</option>
+                <option>JSP</option>
+                <option>NetBean</option>
+                <option>Servlet</option>
+                <option>Tomcat</option>
+                <option>Structs</option>
+            </select><br/>
+            <input type="submit" value="Add book" name="txtAction"/>
+            <input type="submit" value="View cart" name="txtAction" />
+        </form>
+    </body>
+</html>
